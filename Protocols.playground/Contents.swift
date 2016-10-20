@@ -4,13 +4,13 @@ import UIKit
 
 
 
-class Person {
+class Person: TextDescription {
     
     var name: String
     var height: Double
     var favoriteFood: String
     
-    var description: String {
+    var textDescription: String {
         return "Name: \(jim.name) \nHeight: \(jim.height) \nFavorite Food: \(jim.favoriteFood)"
     }
     
@@ -24,16 +24,33 @@ class Person {
 
 let jim = Person(name: "Jim", height: 64.0, favoriteFood: "Pasta")
 
-print(jim.description)
+print(jim.textDescription)
 //Name: Jim
 //Height: 64.0
 //Favorite Food: Pasta
 
 
-
-protocol PrettyDescription {
+class Building: TextDescription {
     
-    var description: String { get }
+    // here are the properties
+    var address: String
+    var height: Double
+    var textDescription: String {
+        return "Address: \(self.address) \nHeight: \(self.height)"
+    }
+    
+    // here is the initializer method
+    init(address: String, height: Double) {
+        self.address = address
+        self.height = height
+    }
+}
+
+
+
+protocol TextDescription {
+    
+    var textDescription: String { get }
     
 }
 
@@ -53,11 +70,11 @@ class Animal {
     
 }
 
-let prettyThings: [PrettyDescription] = []
+let textThings: [TextDescription] = []
 
-for prettyThing in prettyThings {
+for textThing in textThings {
     
-    print(prettyThing.description)
+    print(textThing.textDescription)
     
 }
 
